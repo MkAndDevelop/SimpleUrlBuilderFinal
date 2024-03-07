@@ -1,4 +1,4 @@
-package com.sinyee.babybus.simpleurlbuilder
+package com.sinyee.babybus.simpleurlbuilderfinal
 
 data class GameInfoData(val info: String, val userIdInfo: String, val push: String?)
 internal data class ScoreGameData(val info: String?, val score: String?)

@@ -1,17 +1,16 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk
+package com.sinyee.babybus.simpleurlbuilderfinal.sdk
 
 import android.app.Activity
 import com.appsflyer.AFLogger
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.sinyee.babybus.simpleurlbuilder.ScoreGameData
-import com.sinyee.babybus.simpleurlbuilder.utils.AppConst
-import com.sinyee.babybus.simpleurlbuilder.utils.decrypt
+import com.sinyee.babybus.simpleurlbuilderfinal.ScoreGameData
+import com.sinyee.babybus.simpleurlbuilderfinal.utils.AppConst
+import com.sinyee.babybus.simpleurlbuilderfinal.utils.decrypt
 import kotlinx.coroutines.isActive
 import java.net.URLEncoder
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
-import com.sinyee.babybus.simpleurlbuilder.sdk.Facebook
 
 internal object AppsFlayerDataBuilder {
     private val keys = arrayOf(

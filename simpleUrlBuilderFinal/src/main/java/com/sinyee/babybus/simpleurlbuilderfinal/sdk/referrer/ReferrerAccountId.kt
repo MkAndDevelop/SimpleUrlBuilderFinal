@@ -1,7 +1,9 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk.referrer
+package com.sinyee.babybus.simpleurlbuilderfinal.sdk.referrer
 
 import android.content.Context
-import com.sinyee.babybus.simpleurlbuilder.utils.AppConst
+import com.sinyee.babybus.simpleurlbuilderfinal.utils.AppConst
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.net.URLDecoder
 import javax.crypto.Cipher
@@ -15,7 +17,9 @@ internal class ReferrerAccountId(private val context: Context) {
     private suspend fun decrypt(fbKey: String): String? {
         val referrer = SetUpRef(context).getRef()
         val decodeReferrer = try {
-            URLDecoder.decode(referrer, AppConst.UTF)
+            withContext(Dispatchers.IO) {
+                URLDecoder.decode(referrer, AppConst.UTF)
+            }
         } catch (e: Exception) {
             return null
         }
@@ -40,7 +44,6 @@ internal class ReferrerAccountId(private val context: Context) {
         }
     }
 
-    private fun decodeHex(string: String): ByteArray = string.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
+    private fun decodeHex(string: String): ByteArray =
+        string.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
 }
-
-data class ReferrerInfo(val accountId: String, val info: HashMap<String, String>)
